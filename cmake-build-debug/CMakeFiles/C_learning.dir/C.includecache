@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/C_learning/A1.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+dirent.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+text.h
+D:/C_learning/text.h
+
+D:/C_learning/text.h
+string.h
+-
+stdio.h
+-
+stdlib.h
+-
+ctype.h
+-
+

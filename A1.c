@@ -10,7 +10,7 @@
 int isDir(const char* fileName);
 
 int main(int argc, char* argv[]){
-    DIR * testDir = opendir(".");
+    DIR * testDir = opendir("D:\\C_learning\\test");
     struct dirent * readDir;
 
     // Error-checking for directory opening
@@ -22,7 +22,7 @@ int main(int argc, char* argv[]){
     // Open the directory
     while((readDir = readdir(testDir))){
         // Check if file is a text file
-        char* compare = strcasestr(readDir->d_name, ".txt");
+        int compare = strcasecmp(readDir->d_name, ".txt");
         if(compare){
             printf("A file has been found!\n"); // Debug checkpoint
         } else{
@@ -42,6 +42,16 @@ int main(int argc, char* argv[]){
         readFile(fp);
 
         fclose(fp); // Close file
+		fp = fopen(readDir->d_name, "r");
+		while(1){
+			char c = fgetc(fp);
+
+			if(c == EOF){
+				break;
+			}
+			printf("%c", c);
+		}
+
     }
     closedir(testDir);
     return 0;
