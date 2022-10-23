@@ -9,5 +9,5 @@ add_executable(C_learning
         text.h
         )
 
-file(COPY test/test.txt
-        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test/test.txt
+        ${CMAKE_CURRENT_BINARY_DIR})

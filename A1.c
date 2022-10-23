@@ -22,8 +22,8 @@ int main(int argc, char* argv[]){
     // Open the directory
     while((readDir = readdir(testDir))){
         // Check if file is a text file
-        int compare = strcasecmp(readDir->d_name, ".txt");
-        if(compare){
+        int compare = endsWith(readDir->d_name, ".txt");
+        if(compare == 0){
             printf("A file has been found!\n"); // Debug checkpoint
         } else{
             // If not a text file, continue iterating
@@ -36,22 +36,19 @@ int main(int argc, char* argv[]){
         }
 
         // Open the file
-        FILE *fp = fopen(readDir->d_name, "r+");
+        FILE *fp = fopen(readDir->d_name, "r");
         printf("File has been opened!\n"); // Debug checkpoint
 
-        readFile(fp);
+        char* newFileString = readFile(fp);
+		printf("\nFinished creating new string for rewrite!\n");
 
-        fclose(fp); // Close file
-		fp = fopen(readDir->d_name, "r");
-		while(1){
-			char c = fgetc(fp);
+		freopen(readDir->d_name, "w", fp);
+		rewriteFile(fp, newFileString);
 
-			if(c == EOF){
-				break;
-			}
-			printf("%c", c);
-		}
-
+		free(newFileString);
+		newFileString = NULL;
+        fclose(fp); // Close file stream
+		fflush(fp);
     }
     closedir(testDir);
     return 0;

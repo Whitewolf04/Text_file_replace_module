@@ -5,7 +5,7 @@
 		<Option title="C_learning"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\test\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="D:/C_learning/cmake-build-debug"/>
@@ -87,6 +87,9 @@
 		</Unit>
 		<Unit filename="D:/C_learning/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="D:/C_learning/test/test.txt">
+			<Option virtualFolder="CMake Files\test\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
