@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-D:/C_learning/A1.c
+/Users/whitewolf04/Documents/COMP_348/C_learning/A1.c
 stdio.h
 -
 stdlib.h
@@ -20,9 +20,9 @@ sys/types.h
 sys/stat.h
 -
 text.h
-D:/C_learning/text.h
+/Users/whitewolf04/Documents/COMP_348/C_learning/text.h
 
-D:/C_learning/text.h
+/Users/whitewolf04/Documents/COMP_348/C_learning/text.h
 string.h
 -
 stdio.h

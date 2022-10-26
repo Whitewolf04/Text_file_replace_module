@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/C_learning.dir/A1.c.obj"
-  "CMakeFiles/C_learning.dir/text.c.obj"
-  "C_learning.exe"
-  "C_learning.exe.manifest"
+  "CMakeFiles/C_learning.dir/A1.c.o"
+  "CMakeFiles/C_learning.dir/text.c.o"
+  "C_learning"
   "C_learning.pdb"
-  "libC_learning.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

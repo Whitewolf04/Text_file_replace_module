@@ -1,3 +1,1 @@
-"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\C_learning.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe cr CMakeFiles\C_learning.dir/objects.a @CMakeFiles\C_learning.dir\objects1.rsp
-C:\msys64\mingw64\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\C_learning.dir/objects.a -Wl,--no-whole-archive -o C_learning.exe -Wl,--out-implib,libC_learning.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\C_learning.dir\linklibs.rsp
+/Library/Developer/CommandLineTools/usr/bin/cc -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk -mmacosx-version-min=12.6 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/C_learning.dir/A1.c.o CMakeFiles/C_learning.dir/text.c.o -o C_learning 
