@@ -1,17 +1,34 @@
 #include "../traversal.h"
+#include "../report.h"
+// #include "../text.h"
 
-int main(){
-    DIR* testDir = opendir(".");
+// extern char* report;
 
-    // Error-checking for directory opening
-    if(testDir == NULL){
-        printf("Couldn't open directory\n");
-        exit(1);
-    }
+int main(int argc, char *argv[]){
+    char* input = (char*) malloc(sizeof(char)*(strlen(argv[1])+1));
+    memset(input, 0, strlen(input));
+    strcpy(input, argv[1]);
 
-    readDirectory(testDir);
+    int* changeCounter = (int*) malloc(sizeof(int));
+    (*changeCounter) = 0;
 
-    closedir(testDir);
+    char* currentPath = (char*) malloc(FILENAME_MAX);
+    getcwd(currentPath, FILENAME_MAX);
+
+    // initializeReport();
+    // setReportTargetString(input);
+    // setReportDirectory(currentPath);
+
+    readDirectory(currentPath, input, changeCounter);
+
+    printf("Close directory successfully!\n"); // Debug checkpoint
+
+    printf("Total number of updates: %d\n", *changeCounter);  // Debug checkpoint
+
+    // printReport();
+
+    free(input);
+    free(changeCounter);
 
     return 0;
 }

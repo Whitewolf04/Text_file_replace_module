@@ -1,27 +1,27 @@
 #include "text.h"
 
-char *readFile(FILE *file, const char *input)
+char *readFile(FILE *file, const char *input, int* changeCounter)
 {
 	// Create a string to store each string read in
 	// and create a new file string to store the string that is going to be rewritten to file
 	long int fileSize = sizeOfFile(file);
-	char *str = (char*) malloc(40);
-	char *newFileString = (char*) malloc(fileSize + 1);
+	char *str = (char*) malloc(sizeof(char)*40);
+	char *newFileString = (char*) malloc(fileSize + sizeof(char));
+	printf("Created new file strings\n"); // Debug checkpoint
 
 	// Clear out the memory in the newly created strings
 	memset(str, 0, strlen(str));
 	memset(newFileString, 0, strlen(newFileString));
-	int stringCounter = -1;
+	printf("Cleared out memory in created strings\n"); // Debug checkpoint
 
 	do
 	{
 		char c = fgetc(file);
 		if (c == EOF)
 		{
+			printf("End of file has been reached!\n");
 			break;
 		}
-		stringCounter++;
-		//    printf("%c", c);
 		// Concatenate characters to string until find a space
 		if (!isspace(c))
 		{
@@ -29,20 +29,24 @@ char *readFile(FILE *file, const char *input)
 		}
 		else
 		{
-			strncat(str, "\0", 1);
-			printf("%s", str);
-			printf(" ");
-			if (strstr(str, input) != NULL)
+			// strncat(str, "\0", 1);
+			if (strcasestr(str, input) != NULL)
 			{
+				// printf("A matching string has been found, here is the string: %s\n", str); // Debug checkpoint
 				str = replace(str, input);
+				(*changeCounter)++;
+				// printf("String replaced, and changeCounter incremented\n"); // Debug checkpoint
 			}
 			strncat(newFileString, str, strlen(str));
 			strncat(newFileString, &c, 1);
+			// printf("Concatenated string to newFileString\n"); // Debug checkpoint
 			memset(str, 0, strlen(str));
 		}
 	} while (1);
+	printf("Finishing off new file string\n");
 	strncat(newFileString, "\0", 1);
-	printf("\nNew File String:\n%s", newFileString);
+	printf("New File string has successfully been created\n"); // Debug checkpoint
+	printf("\nNew File String:\n%s", newFileString); // Debug checkpoint
 
 	free(str);
 	str = NULL;
@@ -55,7 +59,7 @@ void rewriteFile(FILE *file, const char *string)
 	printf("\nRewriting back to file!\n");
 	fputs(string, file);
 	fflush(file);
-	printf("Successfully rewritten file!");
+	printf("Successfully rewritten file!\n");
 }
 
 int endsWith(const char *string, const char *suffix)
@@ -85,7 +89,7 @@ long int sizeOfFile(FILE *file)
 }
 
 char* replace(char* string, const char* input){
-	// printf("Setting up variables\n"); // Debug checkpoint
+	printf("Setting up variables\n"); // Debug checkpoint
 	char * substring = strcasestr(string, input);
 	int length = strlen(string) - strlen(substring) + strlen(input);
 	int stringCounter = 0;
@@ -116,7 +120,7 @@ char* replace(char* string, const char* input){
 		*iterator++;
 	}
 	strncat(output, "\0", 1);
-	// printf("Converted string successfully, inputted string %s and output string %s\n", string, output); // Debug checkpoint
+	printf("Converted string successfully, inputted string %s and output string %s\n", string, output); // Debug checkpoint
 
 	memcpy(string, output, sizeof(output));
 
