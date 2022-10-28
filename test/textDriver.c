@@ -1,5 +1,6 @@
 #include <errno.h>
-#include "../report.h"
+// #include "../report.h"
+#include "../traversal.h"
 
 int main()
 {
@@ -43,11 +44,10 @@ int main()
     printf("Setting current folder\n");
     setReportDirectory(currentFolder);
     printf("Putting changes and file name\n");
-    writeReport("something/something", 5);
+    writeReport("C:/something/something/hello.txt", 5);
     printf("Generating report\n");
     system("clear");
-    printf("Here is the report generated:\n%s", report);
-    free(report);
+    printReport();
 
     // char* test2 = (char*) malloc(sizeof(char)*26);
     // strcpy(test2, "hello123hello456helloFinal");
@@ -55,5 +55,16 @@ int main()
     // printf("New string replaced: %s\n", test2);
 
     // free(test2);
+
+    // FILE* fp = fopen("test.txt", "r");
+
+    // char c = getc(fp);
+
+    // while(c != EOF){
+    //     putchar(c);
+    //     c = getc(fp);
+    // }
+
+    // fclose(fp);
     return 0;
 }

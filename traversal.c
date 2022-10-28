@@ -86,7 +86,9 @@ void readDirectory(char* currentPath, const char* input, int* changeCounter){
 		free(newFileString);
 		newFileString = NULL;
 
-        // writeReport(tempPath, *changeCounter);
+        // Write report and reset change counter
+        writeReport(tempPath, *changeCounter);
+        (*changeCounter) = 0;
         
         // Close file
         fclose(fp);

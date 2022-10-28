@@ -19,7 +19,6 @@ char *readFile(FILE *file, const char *input, int* changeCounter)
 		char c = fgetc(file);
 		if (c == EOF)
 		{
-			printf("End of file has been reached!\n");
 			break;
 		}
 		// Concatenate characters to string until find a space
@@ -43,9 +42,9 @@ char *readFile(FILE *file, const char *input, int* changeCounter)
 			memset(str, 0, strlen(str));
 		}
 	} while (1);
-	printf("Finishing off new file string\n");
+	// printf("Finishing off new file string\n");
 	strncat(newFileString, "\0", 1);
-	printf("New File string has successfully been created\n"); // Debug checkpoint
+	// printf("New File string has successfully been created\n"); // Debug checkpoint
 	printf("\nNew File String:\n%s", newFileString); // Debug checkpoint
 
 	free(str);

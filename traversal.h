@@ -8,9 +8,8 @@
 #include <string.h>
 
 #include "text.h"
-// #include "report.h"
+#include "report.h"
 
-// extern char* report;
 
 int isDir(const char*);
 void readDirectory(char*, const char*, int*);

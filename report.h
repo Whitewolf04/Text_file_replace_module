@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* report;
+static char* report;
+static char* localCurrentpath;
 
 void writeReport(char*, const int);
 void initializeReport();
